@@ -59,11 +59,15 @@ public class BuildingController : MonoBehaviour
         }
     }
 
-    private void BuildStructure()
+    private void BuildStructure(bool flag)
     {
         if (!isTrigger)
         {
             Instantiate(structure, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
+
+            if (flag){
+                Destroy(tmpPreview);
+            }
         }
         else
         {
@@ -80,12 +84,11 @@ public class BuildingController : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                 {
-                    BuildStructure();
+                    BuildStructure(false);
                 }
                 else
                 {
-                    BuildStructure();
-                    Destroy(tmpPreview);
+                    BuildStructure(true);
                 }
             }
             if (Input.GetKey(KeyCode.R))
