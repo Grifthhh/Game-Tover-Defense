@@ -111,6 +111,38 @@ public class CameraController : MonoBehaviour
         if ((transform.position.y > cameraArea._in || scroll < 0) && (transform.position.y < cameraArea._out || scroll > 0))
         {
             transform.Translate(0.0f, 0.0f, Time.deltaTime * scroll * scrollSpeed * 100);
+            
+        }
+        Vector3 pos = transform.position;
+        if (transform.position.z > cameraArea.up)
+        {
+            pos.z = cameraArea.up;
+            transform.position = pos;
+        }
+        if (transform.position.z < cameraArea.down)
+        {
+            pos.z = cameraArea.down;
+            transform.position = pos;
+        }
+        if (transform.position.x > cameraArea.right)
+        {
+            pos.x = cameraArea.right;
+            transform.position = pos;
+        }
+        if (transform.position.x < cameraArea.left)
+        {
+            pos.x = cameraArea.left;
+            transform.position = pos;
+        }
+        if (transform.position.y < cameraArea._in)
+        {
+            pos.y = cameraArea._in;
+            transform.position = pos;
+        }
+        if (transform.position.y > cameraArea._out)
+        {
+            pos.y = cameraArea._out;
+            transform.position = pos;
         }
     }
 }
