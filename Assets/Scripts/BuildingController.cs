@@ -86,7 +86,7 @@ public class BuildingController : MonoBehaviour
                 {
                     BuildStructure(false);
                 }
-                else
+                else if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
                 {
                     BuildStructure(true);
                 }
