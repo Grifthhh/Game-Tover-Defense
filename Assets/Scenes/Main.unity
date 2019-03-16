@@ -660,7 +660,9 @@ MonoBehaviour:
     down: 0
     left: 0
     right: 0
-  cameraSpeed: 5
+  cameraSpeed: 4
+  scrollSpeed: 9
+  shiftSpeedInc: 3
 --- !u!1 &1868299685
 GameObject:
   m_ObjectHideFlags: 0

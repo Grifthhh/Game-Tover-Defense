@@ -13,8 +13,9 @@ public class CameraController : MonoBehaviour
         public float right;
     }
     public CameraArea cameraArea;
-    public float cameraSpeed = 5f;
+    public float cameraSpeed = 1f;
     public float scrollSpeed = 1f;
+    public float shiftSpeedInc = 2f;
 
     private void Update()
     {
@@ -23,6 +24,12 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            cameraSpeed /= shiftSpeedInc;
+            scrollSpeed /= shiftSpeedInc;
+        }
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             MoveUp();
@@ -45,6 +52,12 @@ public class CameraController : MonoBehaviour
 
         ZoomIn();
         ZoomOut();
+
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            cameraSpeed *= shiftSpeedInc;
+            scrollSpeed *= shiftSpeedInc;
+        }
     }
 
     private void MoveUp()
@@ -84,6 +97,6 @@ public class CameraController : MonoBehaviour
     private void ZoomOut()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        transform.Translate(0.0f, 0.0f, Time.deltaTime * scroll * scrollSpeed * 1000);
+        transform.Translate(0.0f, 0.0f, Time.deltaTime * scroll * scrollSpeed * 100);
     }
 }

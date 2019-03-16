@@ -82,11 +82,11 @@ public class BuildingManeger : MonoBehaviour
             PreviewMoving();
             if (Input.GetMouseButtonDown(1))
             {
-                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
                 {
                     BuildStructure(false);
                 }
-                else //if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                else
                 {
                     BuildStructure(true);
                 }
