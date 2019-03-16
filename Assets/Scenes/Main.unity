@@ -661,7 +661,7 @@ MonoBehaviour:
     left: 100
     right: 100
     _in: 10
-    _out: 8
+    _out: 50
   cameraSpeed: 4
   scrollSpeed: 9
   shiftSpeedInc: 3

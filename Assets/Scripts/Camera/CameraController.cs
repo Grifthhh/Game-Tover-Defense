@@ -7,12 +7,12 @@ public class CameraController : MonoBehaviour
     [System.Serializable]
     public class CameraArea
     {
-        public float up;
-        public float down;
-        public float left;
-        public float right;
-        public float _in;
-        public float _out;
+        public float up = 90;
+        public float down = -110;
+        public float left = -100;
+        public float right = 100;
+        public float _in = 10;
+        public float _out = 50;
     }
     public CameraArea cameraArea;
     public float cameraSpeed = 1f;
@@ -64,29 +64,45 @@ public class CameraController : MonoBehaviour
     private void MoveUp()
     {
         Vector3 pos = transform.position;
-        pos.z += Time.deltaTime * cameraSpeed * 10;
-        transform.position = pos;
+        
+        if (pos.z < cameraArea.up)
+        {
+            pos.z += Time.deltaTime * cameraSpeed * 10;
+            transform.position = pos;
+        }
     }
 
     private void MoveDown()
     {
         Vector3 pos = transform.position;
-        pos.z -= Time.deltaTime * cameraSpeed * 10;
-        transform.position = pos;
+
+        if (pos.z > cameraArea.down)
+        {
+            pos.z -= Time.deltaTime * cameraSpeed * 10;
+            transform.position = pos;
+        }
     }
 
     private void MoveLeft()
     {
         Vector3 pos = transform.position;
-        pos.x -= Time.deltaTime * cameraSpeed * 10;
-        transform.position = pos;
+
+        if (pos.x > cameraArea.left)
+        {
+            pos.x -= Time.deltaTime * cameraSpeed * 10;
+            transform.position = pos;
+        }
     }
 
     private void MoveRight()
     {
         Vector3 pos = transform.position;
-        pos.x += Time.deltaTime * cameraSpeed * 10;
-        transform.position = pos;
+
+        if (pos.x < cameraArea.right)
+        {
+            pos.x += Time.deltaTime * cameraSpeed * 10;
+            transform.position = pos;
+        }
     }
 
     private void Zoom()
