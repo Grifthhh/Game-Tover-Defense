@@ -215,6 +215,11 @@ MonoBehaviour:
   structurePreview: {fileID: 7196929364088187443, guid: f1cb8a680c3805545824015a169f6bfd,
     type: 3}
   rotationSpeed: 5
+  floorLayer: 0
+  tmpPreview: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  hitPoint: {x: 0, y: 0, z: 0}
+  <isTrigger>k__BackingField: 0
 --- !u!4 &244384503
 Transform:
   m_ObjectHideFlags: 0

@@ -7,20 +7,20 @@ public class CollisionController : MonoBehaviour
     public Material preview;
     public Material previewCantBuild;
 
-    private GameObject buildingManeger;
-    private BuildingController buildingController;
+    private GameObject buildingManegerObject;
+    private BuildingManeger buildingManeger;
 
     private void Start()
     {
-        buildingManeger = GameObject.FindGameObjectWithTag("BuildingManeger");
-        buildingController = buildingManeger.GetComponent<BuildingController>();
+        buildingManegerObject = GameObject.FindGameObjectWithTag("BuildingManeger");
+        buildingManeger = buildingManegerObject.GetComponent<BuildingManeger>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Structure"))
         {
-            buildingController.isTrigger = true;
+            buildingManeger.isTrigger = true;
             gameObject.GetComponent<MeshRenderer>().material = previewCantBuild;
         }
     }
@@ -29,7 +29,7 @@ public class CollisionController : MonoBehaviour
     {
         if (other.CompareTag("Structure"))
         {
-            buildingController.isTrigger = true;
+            buildingManeger.isTrigger = true;
             gameObject.GetComponent<MeshRenderer>().material = previewCantBuild;
         }
     }
@@ -38,7 +38,7 @@ public class CollisionController : MonoBehaviour
     {
         if (other.CompareTag("Structure"))
         {
-            buildingController.isTrigger = false;
+            buildingManeger.isTrigger = false;
             gameObject.GetComponent<MeshRenderer>().material = preview;
         }
     }

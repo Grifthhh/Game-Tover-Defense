@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingController : MonoBehaviour
+public class BuildingManeger : MonoBehaviour
 {
     public GameObject structure;
     public GameObject structurePreview;
