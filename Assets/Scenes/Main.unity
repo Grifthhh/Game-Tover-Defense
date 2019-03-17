@@ -656,8 +656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraArea:
-    up: 90
-    down: -110
+    up: 85.57
+    down: -114.43
     left: -100
     right: 100
     _in: 10
