@@ -15,9 +15,9 @@ public class CameraController : MonoBehaviour
         public float _out = 50;
     }
     public CameraArea cameraArea;
-    public float cameraSpeed = 1f;
-    public float scrollSpeed = 1f;
-    public float shiftSpeedInc = 2f;
+    public float cameraSpeed = 4f;
+    public float scrollSpeed = 9f;
+    public float shiftSpeedInc = 3f;
 
     private void Update()
     {
