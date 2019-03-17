@@ -27,7 +27,7 @@ public class BuildingManeger : MonoBehaviour
     private void Preview()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, 100f, floorLayer))
+        if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
         {
             if (tmpPreview == null)
             {
@@ -39,7 +39,7 @@ public class BuildingManeger : MonoBehaviour
     private void PreviewMoving()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, 100f, floorLayer))
+        if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
         {
             offset = hit.point - hitPoint;
             hitPoint = hit.point;

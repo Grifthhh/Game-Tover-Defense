@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
     [System.Serializable]
     public class CameraArea
     {
-        public float up = 90;
-        public float down = -110;
+        public float up = 85.57f;
+        public float down = -114.43f;
         public float left = -100;
         public float right = 100;
         public float _in = 10;
