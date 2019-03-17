@@ -91,11 +91,11 @@ public class BuildingManeger : MonoBehaviour
                     BuildStructure(true);
                 }
             }
-            if (Input.GetKey(KeyCode.R))
+            if (Input.GetKey(KeyCode.E))
             {
                 PreviewRotation(true);
             }
-            if (Input.GetKey(KeyCode.T))
+            if (Input.GetKey(KeyCode.Q))
             {
                 PreviewRotation(false);
             }
