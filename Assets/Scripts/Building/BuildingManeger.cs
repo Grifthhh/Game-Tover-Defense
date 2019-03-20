@@ -22,6 +22,11 @@ public class BuildingManeger : MonoBehaviour
     public void Update()
     {
         BuildingGetKey();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 200f))
+        {
+            Debug.Log(hit.transform.name);
+        }
     }
 
     private void Preview()
