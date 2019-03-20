@@ -19,6 +19,16 @@ public class CameraController : MonoBehaviour
     public float scrollSpeed = 9f;
     public float shiftSpeedInc = 3f;
 
+    private LayerMask floorLayer;
+    private Vector3 offset;
+    private Vector3 hitPoint;
+
+    private void Start()
+    {
+        floorLayer = LayerMask.GetMask("Floor");
+        Debug.Log(new Vector3(5.0f, 0.0f, 0.0f).magnitude);
+    }
+
     private void Update()
     {
         MoveCamera();
@@ -26,11 +36,11 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-        {
-            cameraSpeed /= shiftSpeedInc;
-            scrollSpeed /= shiftSpeedInc;
-        }
+        //if (Input.GetKeyDown(KeyCode.LeftShift))
+        //{
+        //    cameraSpeed *= shiftSpeedInc;
+        //    scrollSpeed *= shiftSpeedInc;
+        //}
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
@@ -52,13 +62,30 @@ public class CameraController : MonoBehaviour
             MoveRight();
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
+            {
+                hitPoint = hit.point;
+            }
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                MoveWithMause();
+            }
+        }
+
         Zoom();
 
-        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
-        {
-            cameraSpeed *= shiftSpeedInc;
-            scrollSpeed *= shiftSpeedInc;
-        }
+        //if (Input.GetKeyUp(KeyCode.LeftShift))
+        //{
+        //    cameraSpeed /= shiftSpeedInc;
+        //    scrollSpeed /= shiftSpeedInc;
+        //}
     }
 
     private void MoveUp()
@@ -144,5 +171,17 @@ public class CameraController : MonoBehaviour
             pos.y = cameraArea._out;
             transform.position = pos;
         }
+    }
+
+    private void MoveWithMause()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
+        {
+            offset = hit.point - hitPoint;
+            hitPoint = hit.point;
+        }
+        transform.Translate(-offset * 10, Space.World);
+        
     }
 }

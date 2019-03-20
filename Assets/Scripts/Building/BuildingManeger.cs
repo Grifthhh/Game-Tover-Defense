@@ -22,11 +22,6 @@ public class BuildingManeger : MonoBehaviour
     public void Update()
     {
         BuildingGetKey();
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, 200f))
-        {
-            Debug.Log(hit.transform.name);
-        }
     }
 
     private void Preview()
@@ -38,7 +33,8 @@ public class BuildingManeger : MonoBehaviour
             {
                 hitPoint = hit.point;
                 tmpPreview = Instantiate(structurePreview, hit.point, Quaternion.identity);
-            }        }
+            }
+        }
     }
 
     private void PreviewMoving()
@@ -73,10 +69,6 @@ public class BuildingManeger : MonoBehaviour
             if (flag){
                 Destroy(tmpPreview);
             }
-        }
-        else
-        {
-            Debug.Log("Kurulamaz!");
         }
     }
 
