@@ -7,6 +7,7 @@ public class BuildingManeger : MonoBehaviour
     public GameObject structure;
     public GameObject structurePreview;
     public int rotationSpeed = 1;
+    public CanvasRenderer imageRenderer;
 
     private int floorLayer;
     private GameObject tmpPreview;
@@ -62,7 +63,7 @@ public class BuildingManeger : MonoBehaviour
 
     private void BuildStructure(bool flag)
     {
-        if (!isTrigger)
+        if (!isTrigger && ClickableFlag.clickable)
         {
             Instantiate(structure, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
 
@@ -77,9 +78,9 @@ public class BuildingManeger : MonoBehaviour
         if (tmpPreview != null)
         {
             PreviewMoving();
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
                     BuildStructure(false);
                 }

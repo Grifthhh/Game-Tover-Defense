@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -18,15 +19,20 @@ public class CameraController : MonoBehaviour
     public float cameraSpeed = 4f;
     public float scrollSpeed = 9f;
     public float shiftSpeedInc = 3f;
+    public new Camera camera;
+    public Toggle keyboard;
+    public Toggle mouse;
 
     private LayerMask floorLayer;
     private Vector3 offset;
     private Vector3 hitPoint;
+    private Vector3 tmpHitPoint;
+    private Vector3 firstCameraPosition;
 
     private void Start()
     {
         floorLayer = LayerMask.GetMask("Floor");
-        Debug.Log(new Vector3(5.0f, 0.0f, 0.0f).magnitude);
+        firstCameraPosition = transform.position;
     }
 
     private void Update()
@@ -36,12 +42,21 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
-        //if (Input.GetKeyDown(KeyCode.LeftShift))
-        //{
-        //    cameraSpeed *= shiftSpeedInc;
-        //    scrollSpeed *= shiftSpeedInc;
-        //}
+        Zoom();
 
+        if (keyboard.isOn)
+        {
+            MoveWithKeyboar();
+        }
+        
+        if (mouse.isOn)
+        {
+            MoveWithMouse();
+        }
+    }
+
+    private void MoveWithKeyboar()
+    {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             MoveUp();
@@ -61,31 +76,22 @@ public class CameraController : MonoBehaviour
         {
             MoveRight();
         }
-
-        if (Input.GetMouseButtonDown(0))
+    }
+    private void MoveWithMouse()
+    {
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
             {
-                hitPoint = hit.point;
+                tmpHitPoint = hit.point - (transform.position - firstCameraPosition);
             }
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                MoveWithMause();
-            }
+            MoveWithMause();
         }
-
-        Zoom();
-
-        //if (Input.GetKeyUp(KeyCode.LeftShift))
-        //{
-        //    cameraSpeed /= shiftSpeedInc;
-        //    scrollSpeed /= shiftSpeedInc;
-        //}
     }
 
     private void MoveUp()
@@ -178,10 +184,11 @@ public class CameraController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
         {
-            offset = hit.point - hitPoint;
-            hitPoint = hit.point;
+            hitPoint = hit.point - (transform.position - firstCameraPosition);
+            offset = hitPoint - tmpHitPoint;
+            tmpHitPoint = hitPoint;
         }
-        transform.Translate(-offset * 10, Space.World);
-        
+        transform.Translate(-offset, Space.World);
+        camera.transform.Translate(-offset * 8 / 10, Space.World);
     }
 }
