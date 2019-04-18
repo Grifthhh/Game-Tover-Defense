@@ -12,7 +12,7 @@ public class CollisionController : MonoBehaviour
 
     private void Start()
     {
-        buildingManegerObject = GameObject.FindGameObjectWithTag("BuildingManeger");
+        buildingManegerObject = GameObject.FindGameObjectWithTag("GameController");
         buildingManeger = buildingManegerObject.GetComponent<BuildingManeger>();
     }
 
