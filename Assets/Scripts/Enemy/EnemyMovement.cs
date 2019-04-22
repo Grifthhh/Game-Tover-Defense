@@ -10,12 +10,29 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
-        mainBuilding = GameObject.FindGameObjectWithTag("MainBuilding").transform;
         nav = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        nav.SetDestination(mainBuilding.position);
+        GameObject mb = GameObject.FindGameObjectWithTag("MainBuilding");
+        
+        if (mb != null)
+        {
+            mainBuilding = mb.transform;
+        }
+        else
+        {
+            mainBuilding = null;
+        }
+        
+        if (mainBuilding != null)
+        {
+            nav.SetDestination(mainBuilding.position);
+        }
+        else
+        {
+            Debug.Log("disable");
+        }
     }
 }

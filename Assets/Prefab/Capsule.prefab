@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2237712891696507449}
   - component: {fileID: 2237712891696507448}
   - component: {fileID: 2237712891696507440}
+  - component: {fileID: 3236969438296393787}
   m_Layer: 10
   m_Name: Capsule
   m_TagString: Enemy
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f81cc9d9b399cfb4980c8735fefe8744, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67be57777852a774cb3583c59aa44404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainBuilding: {fileID: 7462444868023001600, guid: d05016e8a6fb04e4eba5902469566800,
+    type: 3}
 --- !u!114 &2237712891696507440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,3 +176,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &3236969438296393787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237712891696507455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85a3c0fd48d65346832ec6a3f1e18b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  damage: 1
