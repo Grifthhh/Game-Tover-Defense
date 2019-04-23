@@ -15,4 +15,13 @@ public class Health : MonoBehaviour
             health = 0;
         }
     }
+
+    private void Update()
+    {
+        if (health == 0)
+        {
+            GameController.isGameOver = true;
+            Destroy(gameObject);
+        }
+    }
 }

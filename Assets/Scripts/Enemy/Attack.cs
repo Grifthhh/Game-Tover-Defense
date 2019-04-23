@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public GameObject mainPrt;
     public float timeBetweenAttacks = .5f;
     public float damage = 20f;
+    public EnemySpawner enemySpawner;
     
     private float timer;
-    private GameObject target;
+    private GameObject target = null;
     private Health health;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,11 +44,8 @@ public class Attack : MonoBehaviour
         if(timer >= timeBetweenAttacks && target != null)
         {
             _Attack();
-
-            if (health.health == 0)
-            {
-                Destroy(target);
-            }
+            GameObject prt = Instantiate(mainPrt, target.transform);
+            Destroy(prt, 2f);
         }
     }
 
@@ -48,6 +53,6 @@ public class Attack : MonoBehaviour
     {
         timer = 0;
         health.TakeDamage(damage);
-        Debug.Log(health.health);
+        audioSource.Play();
     }
 }

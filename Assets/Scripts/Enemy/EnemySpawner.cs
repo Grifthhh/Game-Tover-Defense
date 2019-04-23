@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
     public float spawnRate = 1;
 
+    private float timer;
     private int childCount;
     private List<Vector3> spawnPos = new List<Vector3>();
 
@@ -21,13 +22,20 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Update()
     {
-        InvokeRepeating("Spawn", 0, spawnRate);
+        timer += Time.deltaTime;
+        
+        if (timer > spawnRate)
+        {
+            Spawn();
+        }
     }
 
     private void Spawn()
     {
+        timer = 0;
+
         int random = Random.Range(0, childCount);
         Instantiate(enemy, spawnPos[random], Quaternion.LookRotation(-spawnPos[random]));
     }
