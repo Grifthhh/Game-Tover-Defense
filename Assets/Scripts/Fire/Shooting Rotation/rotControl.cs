@@ -5,12 +5,20 @@ using UnityEngine;
 public class rotControl : MonoBehaviour
 {
     private Transform target;
+
     public float range = 15f;
+    public float rate = 1f;
+    private float fireCountDown;
 
     public string enemyTag = "Enemy";
 
     public Transform toRotate;
     public float turnSpeed = 10f;
+
+    public GameObject bulletP;
+    public Transform firePoint;
+    
+
 
     void Start()
     {
@@ -52,6 +60,24 @@ public class rotControl : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(toRotate.rotation,lookRotation,Time.deltaTime* turnSpeed).eulerAngles;
         toRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
+        if(fireCountDown <= 0f)
+        {
+            Shoot();
+            fireCountDown = 1f / rate;
+        }
+
+        fireCountDown -= Time.deltaTime;
+    }
+
+    void Shoot()
+    {
+        GameObject bulletGo = (GameObject) Instantiate(bulletP, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGo.GetComponent<Bullet>();
+
+        if(bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
     /*
