@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("disable");
+            Debug.Log("oyun bitti");
         }
     }
 }
