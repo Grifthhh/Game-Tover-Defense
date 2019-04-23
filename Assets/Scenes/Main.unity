@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -211,12 +211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4882f76ac3abb3d40820dca5b7b8d844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  structure: {fileID: 3560171113515806471, guid: 416ade030d1f24149b56529278263854,
-    type: 3}
-  structurePreview: {fileID: 7196929364088187443, guid: f1cb8a680c3805545824015a169f6bfd,
-    type: 3}
-  rotationSpeed: 5
-  imageRenderer: {fileID: 1923302840}
 --- !u!4 &244384503
 Transform:
   m_ObjectHideFlags: 0
@@ -3660,10 +3654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbce2d520ee496e48aca08f5bbe8c76b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blood: {fileID: 5670942803679397820, guid: 54f18c3e346949545b1fe8322954f6e3, type: 3}
-  range: 20
-  damage: 50
-  fireRate: 1
 --- !u!1 &1817014454197950407
 GameObject:
   m_ObjectHideFlags: 0
