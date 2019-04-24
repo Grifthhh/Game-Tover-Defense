@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static bool isGameOver = false;
     public static bool isGamePaused = false;
+    
 
     private void Update()
     {

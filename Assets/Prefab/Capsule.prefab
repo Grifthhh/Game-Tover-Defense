@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 2237712891696507449}
   - component: {fileID: 5158526295937389039}
   - component: {fileID: 2237712891696507448}
-  - component: {fileID: 2237712891696507440}
   - component: {fileID: 3236969438296393787}
+  - component: {fileID: 3537768324714587921}
   m_Layer: 10
   m_Name: Capsule
   m_TagString: Enemy
@@ -258,19 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67be57777852a774cb3583c59aa44404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2237712891696507440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2237712891696507455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bde5914673673464380a34d1ccdd21d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &3236969438296393787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,3 +274,16 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   damage: 5
   enemySpawner: {fileID: 0}
+--- !u!114 &3537768324714587921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237712891696507455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968e213359c9e03488d37e4c2a32ede0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
