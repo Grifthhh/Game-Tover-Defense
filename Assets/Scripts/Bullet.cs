@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
     private EnemyHealth health;
 
-
+    public GameObject blood;
     public float speed = 40f;
 
     public void Seek(Transform target2)
@@ -34,11 +34,15 @@ public class Bullet : MonoBehaviour
         if (direction.magnitude <= (distanceThisFrame + 2f))
         {
             HitTarget();
+            GameObject prt = Instantiate(blood, target.transform.position, target.transform.rotation);
+            Destroy(prt, 2);
             health.TakeDamage(damage);
+            Debug.Log(damage);
 
             if (health.health <= 0)
             {
                 Destroy(target, .1f);
+                Gold.gold += 10;
             }
 
             return;

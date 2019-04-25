@@ -104,4 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b439271be118e46b013cf3d18f97c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 21
+  blood: {fileID: 5670942803679397820, guid: 54f18c3e346949545b1fe8322954f6e3, type: 3}
   speed: 40

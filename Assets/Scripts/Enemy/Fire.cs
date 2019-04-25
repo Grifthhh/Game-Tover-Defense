@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fire : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class Fire : MonoBehaviour
             if (health.health <= 0)
             {
                 Destroy(target, .1f);
+                Gold.gold += 10;
             }
         }
     }

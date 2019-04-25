@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - EnemySpawner
   - Building
+  - Library
+  - Shooter
   layers:
   - Default
   - TransparentFX

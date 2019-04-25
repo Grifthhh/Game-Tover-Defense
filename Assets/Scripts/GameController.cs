@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static bool isGameOver = false;
     public static bool isGamePaused = false;
-    
+    public Canvas tech;
 
     private void Update()
     {
@@ -16,18 +16,6 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (isGamePaused)
-                {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
-            }
-
             if (Input.GetKeyDown(KeyCode.P))
             {
                 if (isGamePaused)
@@ -54,8 +42,8 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void Technology()
+    public void Technology()
     {
-
+        tech.enabled = !tech.enabled;
     }
 }

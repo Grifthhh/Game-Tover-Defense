@@ -441,7 +441,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3501835298413135717}
-  - component: {fileID: 3501835298413135718}
   m_Layer: 0
   m_Name: ShooterPrew
   m_TagString: Shooter
@@ -466,22 +465,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3501835298413135718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3501835298413135719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7804be209bdd9294b9251b5d0b23f629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 10
-  rate: 1
-  enemyTag: Enemy
-  toRotate: {fileID: 3501835297507536136}
-  turnSpeed: 10
-  bulletP: {fileID: 4058370733031289515, guid: 8c8059fe4eb04274e87e3f0018b97ce8, type: 3}
-  firePoint: {fileID: 3501835298316085095}
