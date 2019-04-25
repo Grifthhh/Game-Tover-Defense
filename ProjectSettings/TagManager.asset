@@ -11,6 +11,7 @@ TagManager:
   - Building
   - Library
   - Shooter
+  - Missile
   layers:
   - Default
   - TransparentFX

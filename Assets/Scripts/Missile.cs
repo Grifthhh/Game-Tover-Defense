@@ -10,11 +10,8 @@ public class Missile : MonoBehaviour
     private Transform target;
 
     private EnemyHealth health;
-    
-
-
     public float speed = 40f;
-
+    
     public void Seek(Transform target2)
     {
         target = target2;

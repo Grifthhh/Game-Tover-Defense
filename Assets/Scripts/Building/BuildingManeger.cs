@@ -8,6 +8,8 @@ public class BuildingManeger : MonoBehaviour
     public GameObject structurePreview;
     public GameObject library;
     public GameObject libraryPrew;
+    public GameObject misssile;
+    public GameObject misssilePrew;
     public int rotationSpeed = 1;
     public CanvasRenderer imageRenderer;
 
@@ -49,6 +51,19 @@ public class BuildingManeger : MonoBehaviour
             {
                 hitPoint = hit.point;
                 tmpPreview = Instantiate(libraryPrew, hit.point, Quaternion.identity);
+            }
+        }
+    }
+
+    private void PreviewMissile()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
+        {
+            if (tmpPreview == null)
+            {
+                hitPoint = hit.point;
+                tmpPreview = Instantiate(misssilePrew, hit.point, Quaternion.identity);
             }
         }
     }
@@ -101,6 +116,19 @@ public class BuildingManeger : MonoBehaviour
         }
     }
 
+    private void BuildMissile(bool flag)
+    {
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Missile"))
+        {
+            Instantiate(misssile, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
+
+            if (flag)
+            {
+                Destroy(tmpPreview);
+            }
+        }
+    }
+
     private void BuildingGetKey()
     {
         if (tmpPreview != null)
@@ -112,11 +140,13 @@ public class BuildingManeger : MonoBehaviour
                 {
                     BuildStructure(false);
                     BuildLib(false);
+                    BuildMissile(false);
                 }
                 else
                 {
                     BuildStructure(true);
                     BuildLib(true);
+                    BuildMissile(true);
                 }
             }
             if (Input.GetKey(KeyCode.E))
@@ -142,5 +172,10 @@ public class BuildingManeger : MonoBehaviour
     public void chooseLib()
     {
         PreviewLib();
+    }
+
+    public void chooseMiss()
+    {
+        PreviewMissile();
     }
 }

@@ -44,7 +44,6 @@ public class Fire : MonoBehaviour
             if (health.health <= 0)
             {
                 Destroy(target, .1f);
-                Gold.gold += 10;
             }
         }
     }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float health = 100f;
+    public float armor = 1f;
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        health -= damage / armor;
         
         if (health < 0)
         {

@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     //private GameObject target;
-    public float damage = 40f;
+    public float damage = 5f;
     private Transform target;
     private EnemyHealth health;
 
@@ -42,7 +42,6 @@ public class Bullet : MonoBehaviour
             if (health.health <= 0)
             {
                 Destroy(target, .1f);
-                Gold.gold += 10;
             }
 
             return;
