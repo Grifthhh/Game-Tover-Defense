@@ -6,6 +6,8 @@ public class BuildingManeger : MonoBehaviour
 {
     public GameObject structure;
     public GameObject structurePreview;
+    public GameObject library;
+    public GameObject libraryPrew;
     public int rotationSpeed = 1;
     public CanvasRenderer imageRenderer;
 
@@ -38,6 +40,19 @@ public class BuildingManeger : MonoBehaviour
         }
     }
 
+    private void PreviewLib()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
+        {
+            if (tmpPreview == null)
+            {
+                hitPoint = hit.point;
+                tmpPreview = Instantiate(libraryPrew, hit.point, Quaternion.identity);
+            }
+        }
+    }
+
     private void PreviewMoving()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -63,11 +78,24 @@ public class BuildingManeger : MonoBehaviour
 
     private void BuildStructure(bool flag)
     {
-        if (!isTrigger && ClickableFlag.clickable)
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Shooter"))
         {
             Instantiate(structure, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
 
             if (flag){
+                Destroy(tmpPreview);
+            }
+        }
+    }
+
+    private void BuildLib(bool flag)
+    {
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Library"))
+        {
+            Instantiate(library, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
+
+            if (flag)
+            {
                 Destroy(tmpPreview);
             }
         }
@@ -83,10 +111,12 @@ public class BuildingManeger : MonoBehaviour
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     BuildStructure(false);
+                    BuildLib(false);
                 }
                 else
                 {
                     BuildStructure(true);
+                    BuildLib(true);
                 }
             }
             if (Input.GetKey(KeyCode.E))
@@ -107,5 +137,10 @@ public class BuildingManeger : MonoBehaviour
     public void chooseStructure()
     {
         Preview();
+    }
+
+    public void chooseLib()
+    {
+        PreviewLib();
     }
 }

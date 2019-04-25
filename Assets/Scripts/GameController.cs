@@ -53,4 +53,9 @@ public class GameController : MonoBehaviour
         isGamePaused = false;
         Time.timeScale = 1f;
     }
+
+    private void Technology()
+    {
+
+    }
 }
