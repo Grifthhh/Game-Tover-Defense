@@ -6,9 +6,12 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    public float spawnRate = 1;
+    public float spawnRate = .1f;
+    public float waveTime = 10f;
 
+    private int count = 0;
     private float timer;
+    private float waveTimer;
     private int childCount;
     private List<Vector3> spawnPos = new List<Vector3>();
 
@@ -25,6 +28,12 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
+        waveTimer += Time.deltaTime;
+
+        if (timer > waveTimer)
+        {
+            count++;
+        }
         
         if (timer > spawnRate)
         {

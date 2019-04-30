@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Gold : MonoBehaviour
 {
-    public static float gold;
+    public static float gold = 500;
 
     private void Update()
     {

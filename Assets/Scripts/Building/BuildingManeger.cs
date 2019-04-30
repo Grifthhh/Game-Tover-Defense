@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class BuildingManeger : MonoBehaviour
 {
-    public GameObject structure;
-    public GameObject structurePreview;
-    public GameObject library;
-    public GameObject libraryPrew;
-    public GameObject misssile;
-    public GameObject misssilePrew;
     public int rotationSpeed = 1;
     public CanvasRenderer imageRenderer;
+
+    [Header("Shooter")]
+    public GameObject structure;
+    public GameObject structurePreview;
+    public float shooterCost = 100f;
+
+    [Header("Library")]
+    public GameObject library;
+    public GameObject libraryPrew;
+    public float libraryCost = 300f;
+
+    [Header("Missile")]
+    public GameObject misssile;
+    public GameObject misssilePrew;
+    public float misssileCost = 200f;
 
     private int floorLayer;
     private GameObject tmpPreview;
@@ -93,9 +102,10 @@ public class BuildingManeger : MonoBehaviour
 
     private void BuildStructure(bool flag)
     {
-        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Shooter"))
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Shooter") && Gold.gold >= shooterCost)
         {
             Instantiate(structure, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
+            Gold.gold -= shooterCost;
 
             if (flag){
                 Destroy(tmpPreview);
@@ -105,9 +115,11 @@ public class BuildingManeger : MonoBehaviour
 
     private void BuildLib(bool flag)
     {
-        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Library"))
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Library") && Gold.gold >= libraryCost)
         {
             Instantiate(library, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
+            Gold.gold -= libraryCost;
+            GameController.libraryCount++;
 
             if (flag)
             {
@@ -118,9 +130,10 @@ public class BuildingManeger : MonoBehaviour
 
     private void BuildMissile(bool flag)
     {
-        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Missile"))
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Missile") && Gold.gold >= misssileCost)
         {
             Instantiate(misssile, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
+            Gold.gold -= misssileCost;
 
             if (flag)
             {
