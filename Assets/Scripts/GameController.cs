@@ -8,7 +8,15 @@ public class GameController : MonoBehaviour
     public static bool isGamePaused = false;
     public static int libraryCount = 0;
     public Canvas tech;
+    public Bullet bullet;
+    public Missile missile;
 
+    public void Start()
+    {
+        bullet.damage = 5;
+        missile.damage = 5;
+
+    }
     private void Update()
     {
         if (isGameOver)
