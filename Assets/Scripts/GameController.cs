@@ -10,13 +10,15 @@ public class GameController : MonoBehaviour
     public Canvas tech;
     public Bullet bullet;
     public Missile missile;
+    public Health health;
 
     public void Start()
     {
-        bullet.damage = 5;
-        missile.damage = 5;
-
+        bullet.damage = 5f;
+        missile.damage = 5f;
+        health.armor = 1f;
     }
+
     private void Update()
     {
         if (isGameOver)

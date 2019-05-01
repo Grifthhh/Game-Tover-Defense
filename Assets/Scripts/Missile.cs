@@ -5,7 +5,7 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     public GameObject blood;
-    public float damage = 40f;
+    public float damage = 40f; //init in GameController
     public float area = 5f;
     private Transform target;
 

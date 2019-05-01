@@ -4462,6 +4462,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tech: {fileID: 1466440841}
+  bullet: {fileID: 6802728272202371910, guid: 8c8059fe4eb04274e87e3f0018b97ce8, type: 3}
+  missile: {fileID: 6705933816245878204, guid: 0186e087b0a2136479f54691967ef1b9, type: 3}
+  armor: {fileID: 153798427974566867, guid: d05016e8a6fb04e4eba5902469566800, type: 3}
 --- !u!1 &251403221
 GameObject:
   m_ObjectHideFlags: 0
