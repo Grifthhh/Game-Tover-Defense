@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Gold : MonoBehaviour
+public class Science : MonoBehaviour
 {
-    public static float gold = 500;
+    public static float science;
+
+    private void Start()
+    {
+        science = 0;
+    }
 
     private void Update()
     {
         Text text = GetComponent<Text>();
-        text.text = "Gold: " + gold;
+        text.text = "Science: " + science;
     }
 }

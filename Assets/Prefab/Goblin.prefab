@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 3236969438296393787}
   - component: {fileID: 3537768324714587921}
   m_Layer: 10
-  m_Name: Capsule
+  m_Name: Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 5
+  m_Speed: 50
   m_Acceleration: Infinity
   avoidancePriority: 50
   m_AngularSpeed: Infinity
@@ -287,3 +287,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  armor: 1
+  gold: 10

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Fire : MonoBehaviour
 {
     public GameObject blood;
-    public float range = 20f;
-    public float damage = 20f;
-    public float fireRate = 1f;
+    public float range;
+    public float damage;
+    public float fireRate;
 
     private EnemyHealth health;
     private GameObject target;
@@ -21,6 +21,10 @@ public class Fire : MonoBehaviour
 
     private void Start()
     {
+        damage = 20f;
+        range = 20f;
+        fireRate = 1f;
+
         InvokeRepeating("Shoot", 1, fireRate);
     }
 

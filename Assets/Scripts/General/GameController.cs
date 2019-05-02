@@ -4,41 +4,44 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public static bool isGameOver = false;
-    public static bool isGamePaused = false;
-    public static int libraryCount = 0;
+    public static bool isGameOver;
+    public static bool isGamePaused;
+    public static int libraryCount;
     public Canvas tech;
     public Bullet bullet;
     public Missile missile;
     public Health health;
+    public float scienceTimer;
+
+    private float timer;
 
     public void Start()
     {
+        isGameOver = false;
+        isGamePaused = false;
+        libraryCount = 0;
+        /*
         bullet.damage = 5f;
         missile.damage = 5f;
         health.armor = 1f;
+        */
     }
 
     private void Update()
     {
-        if (isGameOver)
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            Pause();
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (isGamePaused)
             {
-                if (isGamePaused)
-                {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
+                Resume();
+            }
+            else
+            {
+                Pause();
             }
         }
+
+        EarnScience();
     }
 
     private void Pause()
@@ -56,5 +59,16 @@ public class GameController : MonoBehaviour
     public void Technology()
     {
         tech.enabled = !tech.enabled;
+    }
+
+    public void EarnScience()
+    {
+        timer += Time.deltaTime;
+
+        if (timer > scienceTimer && libraryCount != 0)
+        {
+            timer = 0;
+            Science.science += libraryCount;
+        }
     }
 }

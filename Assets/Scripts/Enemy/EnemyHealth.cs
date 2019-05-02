@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float health = 100f;
+    public float health;
+    public float armor;
+    public int gold;
+
+    private void Start()
+    {
+        health = 100f;
+        armor = 1f;
+    }
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        health -= damage / armor;
 
         if (health < 0)
         {
@@ -21,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
         if (health == 0)
         {
             Destroy(gameObject);
-            Gold.gold += 10;
+            Gold.gold += gold;
         }
     }
 }

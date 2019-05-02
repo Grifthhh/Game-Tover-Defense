@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate = .1f;
     public float waveTime = 10f;
 
-    private int count = 0;
+    private int count;
     private float timer;
     private float waveTimer;
     private int childCount;
@@ -23,6 +23,11 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPos.Add(transform.GetChild(i).position);
         }
+    }
+
+    private void Start()
+    {
+        count = 0;
     }
 
     private void Update()

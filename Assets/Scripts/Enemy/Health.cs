@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float health = 100f;
-    public float armor = 1f;
+    public float health;
+    public float armor; //init in GameController
+
+    private void Start()
+    {
+        health = 100f;
+        armor = 1f;
+    }
 
     public void TakeDamage(float damage)
     {
@@ -23,6 +29,7 @@ public class Health : MonoBehaviour
         if (health == 0)
         {
             GameController.isGameOver = true;
+
             Destroy(gameObject);
         }
     }
