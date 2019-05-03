@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     //private GameObject target;
-    public float damage = 5f; //init in GameController
+    public float damage; //init in GameController
     private Transform target;
     private EnemyHealth health;
 

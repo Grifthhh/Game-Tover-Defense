@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
 {
     public GameObject mainPrt;
     public float timeBetweenAttacks = .5f;
-    public float damage;
+    public float damage = 20f;
     public EnemySpawner enemySpawner;
     
     private float timer;
@@ -16,8 +16,6 @@ public class Attack : MonoBehaviour
 
     private void Start()
     {
-        damage = 20f;
-
         audioSource = GetComponent<AudioSource>();
     }
 

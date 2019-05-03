@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float health;
-    public float armor;
+    public float health = 100f;
+    public float armor = 1f;
     public int gold;
-
-    private void Start()
-    {
-        health = 100f;
-        armor = 1f;
-    }
 
     public void TakeDamage(float damage)
     {

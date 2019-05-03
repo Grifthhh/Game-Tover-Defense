@@ -7,11 +7,20 @@ public class GameController : MonoBehaviour
     public static bool isGameOver;
     public static bool isGamePaused;
     public static int libraryCount;
-    public Canvas tech;
-    public Bullet bullet;
-    public Missile missile;
-    public Health health;
     public float scienceTimer;
+    public Canvas tech;
+
+    [Header("Bullet")]
+    public Bullet bullet;
+    public float bDamage;
+
+    [Header("Missile")]
+    public Missile missile;
+    public float mDamage;
+
+    [Header("Health")]
+    public Health health;
+    public float armor;
 
     private float timer;
 
@@ -20,11 +29,10 @@ public class GameController : MonoBehaviour
         isGameOver = false;
         isGamePaused = false;
         libraryCount = 0;
-        /*
-        bullet.damage = 5f;
-        missile.damage = 5f;
-        health.armor = 1f;
-        */
+        
+        bullet.damage = bDamage;
+        missile.damage = mDamage;
+        health.armor = armor;
     }
 
     private void Update()

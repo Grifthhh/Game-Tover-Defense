@@ -5,13 +5,13 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     public GameObject blood;
-    public float damage = 40f; //init in GameController
+    public float damage; //init in GameController
     public float area = 5f;
     private Transform target;
 
     private EnemyHealth health;
     public float speed = 40f;
-    
+
     public void Seek(Transform target2)
     {
         target = target2;

@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    Animator anim;
+    public Image img;
+    public Text txt;
+    public Button btn;
+
+    private Animator anim;
 
     private void Start()
     {
@@ -17,6 +22,9 @@ public class GameOverController : MonoBehaviour
         if (GameController.isGameOver)
         {
             anim.SetTrigger("gameOver");
+            txt.enabled = true;
+            btn.enabled = true;
+            btn.image.enabled = true;
         }
     }
 

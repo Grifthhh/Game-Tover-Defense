@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float health;
-    public float armor; //init in GameController
+    public float health = 100f;
+    public float armor = 1f; //init in GameController
 
     private void Start()
     {
