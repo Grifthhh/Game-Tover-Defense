@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5751378021027524230}
-  - component: {fileID: 9120597549207573588}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Library
   m_TagString: Library2
   m_Icon: {fileID: 0}
@@ -32,22 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &9120597549207573588
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3560171113515806471}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.5, y: 1.5, z: 1.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &6488869873399403699
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8943329650098805881}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +76,7 @@ GameObject:
   - component: {fileID: 5917352513518228623}
   - component: {fileID: 7328909753324246143}
   - component: {fileID: 6740815266169950181}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -202,7 +185,7 @@ GameObject:
   - component: {fileID: 581340763709292828}
   - component: {fileID: 4828016582881609310}
   - component: {fileID: 1331835805783544553}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Structure
   m_Icon: {fileID: 0}

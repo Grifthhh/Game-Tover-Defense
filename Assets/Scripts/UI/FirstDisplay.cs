@@ -9,7 +9,6 @@ public class FirstDisplay : MonoBehaviour
     void Start()
     {
         GameController.isGamePaused = true;
-
     }
 
     public void Begin()

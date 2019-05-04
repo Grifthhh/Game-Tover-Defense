@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5852084402039802438}
   - component: {fileID: 5852084402039802437}
-  - component: {fileID: 8456853253259336312}
   m_Layer: 11
   m_Name: Shooter
   m_TagString: Untagged
@@ -54,22 +53,6 @@ MonoBehaviour:
   turnSpeed: 10
   bulletP: {fileID: 4058370733031289515, guid: 8c8059fe4eb04274e87e3f0018b97ce8, type: 3}
   firePoint: {fileID: 5852084402103052868}
---- !u!208 &8456853253259336312
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5852084402039802436}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &5852084402085272288
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,11 @@ public class BuildingManeger : MonoBehaviour
     public GameObject misssilePrew;
     public float misssileCost = 200f;
 
+    [Header("Gold")]
+    public GameObject gold;
+    public GameObject goldPrew;
+    public float goldCost = 50f;
+
     private int floorLayer;
     private GameObject tmpPreview;
     private Vector3 offset;
@@ -73,6 +78,19 @@ public class BuildingManeger : MonoBehaviour
             {
                 hitPoint = hit.point;
                 tmpPreview = Instantiate(misssilePrew, hit.point, Quaternion.identity);
+            }
+        }
+    }
+
+    private void PreviewGold()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 200f, floorLayer))
+        {
+            if (tmpPreview == null)
+            {
+                hitPoint = hit.point;
+                tmpPreview = Instantiate(goldPrew, hit.point, Quaternion.identity);
             }
         }
     }
@@ -142,6 +160,20 @@ public class BuildingManeger : MonoBehaviour
         }
     }
 
+    private void BuildGold(bool flag)
+    {
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Gold") && Gold.gold >= goldCost)
+        {
+            Instantiate(gold, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
+            Gold.gold -= goldCost;
+
+            if (flag)
+            {
+                Destroy(tmpPreview);
+            }
+        }
+    }
+
     private void BuildingGetKey()
     {
         if (tmpPreview != null)
@@ -154,12 +186,14 @@ public class BuildingManeger : MonoBehaviour
                     BuildStructure(false);
                     BuildLib(false);
                     BuildMissile(false);
+                    BuildGold(false);
                 }
                 else
                 {
                     BuildStructure(true);
                     BuildLib(true);
                     BuildMissile(true);
+                    BuildGold(true);
                 }
             }
             if (Input.GetKey(KeyCode.E))
@@ -190,5 +224,10 @@ public class BuildingManeger : MonoBehaviour
     public void chooseMiss()
     {
         PreviewMissile();
+    }
+
+    public void chooseGold()
+    {
+        PreviewGold();
     }
 }

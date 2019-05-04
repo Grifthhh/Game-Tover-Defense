@@ -13,6 +13,8 @@ TagManager:
   - Shooter
   - Missile
   - Library2
+  - Gold2
+  - Gold
   layers:
   - Default
   - TransparentFX
