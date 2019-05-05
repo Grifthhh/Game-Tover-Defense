@@ -1,14 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public Button goldBtn;
+    public Button libBtn;
+    public Button bulBtn;
+    public Button misBtn;
+
     public static bool isGameOver;
     public static bool isGamePaused;
     public static int libraryCount;
+    public static int goldCount;
+    public static int permissionGold;
+    public static int permissionLibrary;
     public float scienceTimer;
-    public Canvas tech;
+    public float goldTimer;
+    public static float goldRate;
+    public static float scienceRate;
+
+    [Header("Technology")]
+    public Canvas military;
+    public Canvas economic;
 
     [Header("Bullet")]
     public Bullet bullet;
@@ -22,21 +37,63 @@ public class GameController : MonoBehaviour
     public Health health;
     public float armor;
 
-    private float timer;
+    private float sTimer;
+    private float gTimer;
 
     public void Start()
     {
         isGameOver = false;
         isGamePaused = false;
         libraryCount = 0;
+        goldCount = 0;
         
         bullet.damage = bDamage;
         missile.damage = mDamage;
         health.armor = armor;
+
+        goldRate = 1f;
+        scienceRate = 1f;
+
+        goldBtn.interactable = false;
+        bulBtn.interactable = false;
+        misBtn.interactable = false;
+
+        permissionGold = 0;
+        permissionLibrary = 1;
     }
 
     private void Update()
     {
+        if (libraryCount == 1)
+        {
+            bulBtn.interactable = true;
+            misBtn.interactable = true;
+        }
+
+        if (permissionGold > goldCount)
+        {
+            goldBtn.interactable = true;
+        }
+        else
+        {
+            goldBtn.interactable = false;
+        }
+
+        if (permissionLibrary > libraryCount)
+        {
+            libBtn.interactable = true;
+        }
+        else
+        {
+            libBtn.interactable = false;
+        }
+
+        sTimer += Time.deltaTime;
+        gTimer += Time.deltaTime;
+
+        GainScience();
+        GainGold();
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (isGamePaused)
@@ -48,8 +105,6 @@ public class GameController : MonoBehaviour
                 Pause();
             }
         }
-
-        EarnScience();
     }
 
     private void Pause()
@@ -64,19 +119,31 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Technology()
+    public void Military()
     {
-        tech.enabled = !tech.enabled;
+        military.enabled = !military.enabled;
     }
 
-    public void EarnScience()
+    public void Economic()
     {
-        timer += Time.deltaTime;
+        economic.enabled = !economic.enabled;
+    }
 
-        if (timer > scienceTimer && libraryCount != 0)
+    public void GainScience()
+    {
+        if (sTimer > scienceTimer && libraryCount != 0)
         {
-            timer = 0;
+            sTimer = 0;
             Science.science += libraryCount;
+        }
+    }
+
+    public void GainGold()
+    {
+        if (gTimer > goldTimer && goldCount != 0)
+        {
+            gTimer = 0;
+            Gold.gold += goldCount * goldRate;
         }
     }
 }

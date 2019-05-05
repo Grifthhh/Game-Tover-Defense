@@ -166,6 +166,7 @@ public class BuildingManeger : MonoBehaviour
         {
             Instantiate(gold, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
             Gold.gold -= goldCost;
+            GameController.goldCount++;
 
             if (flag)
             {

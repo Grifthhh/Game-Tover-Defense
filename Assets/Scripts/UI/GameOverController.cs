@@ -9,6 +9,7 @@ public class GameOverController : MonoBehaviour
     public Image img;
     public Text txt;
     public Button btn;
+    public Text btnTxt;
 
     private Animator anim;
 
@@ -25,6 +26,7 @@ public class GameOverController : MonoBehaviour
             txt.enabled = true;
             btn.enabled = true;
             btn.image.enabled = true;
+            btnTxt.enabled = false;
         }
     }
 
