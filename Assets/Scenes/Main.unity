@@ -2683,7 +2683,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 244384504}
-        m_MethodName: Technology
+        m_MethodName: Military
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4674,7 +4674,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldBtn: {fileID: 1097099552}
-  scienceTimer: 0
+  libBtn: {fileID: 1851923508}
+  bulBtn: {fileID: 1069985450}
+  misBtn: {fileID: 1160320432}
+  scienceTimer: 1
   goldTimer: 1
   military: {fileID: 1466440841}
   economic: {fileID: 693318076}
@@ -12640,7 +12643,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693318075}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -12904,7 +12907,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 244384504}
-        m_MethodName: Technology
+        m_MethodName: Economic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
