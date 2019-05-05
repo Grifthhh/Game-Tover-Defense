@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     [Header("Technology")]
     public Canvas military;
     public Canvas economic;
+    public Canvas scienceC;
 
     [Header("Bullet")]
     public Bullet bullet;
@@ -129,12 +130,17 @@ public class GameController : MonoBehaviour
         economic.enabled = !economic.enabled;
     }
 
+    public void ScienceC()
+    {
+        scienceC.enabled = !scienceC.enabled;
+    }
+
     public void GainScience()
     {
         if (sTimer > scienceTimer && libraryCount != 0)
         {
             sTimer = 0;
-            Science.science += libraryCount;
+            Science.science += libraryCount * scienceRate;
         }
     }
 

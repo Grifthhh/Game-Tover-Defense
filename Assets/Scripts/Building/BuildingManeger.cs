@@ -133,7 +133,7 @@ public class BuildingManeger : MonoBehaviour
 
     private void BuildLib(bool flag)
     {
-        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Library") && Gold.gold >= libraryCost)
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Library") && Gold.gold >= libraryCost && GameController.permissionLibrary > GameController.libraryCount)
         {
             Instantiate(library, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
             Gold.gold -= libraryCost;
@@ -162,7 +162,7 @@ public class BuildingManeger : MonoBehaviour
 
     private void BuildGold(bool flag)
     {
-        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Gold") && Gold.gold >= goldCost)
+        if (!isTrigger && ClickableFlag.clickable && tmpPreview.CompareTag("Gold") && Gold.gold >= goldCost && GameController.permissionGold > GameController.goldCount)
         {
             Instantiate(gold, tmpPreview.transform.position, tmpPreview.transform.GetChild(0).gameObject.transform.rotation);
             Gold.gold -= goldCost;
