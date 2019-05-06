@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 5670942803679397820, guid: 54f18c3e346949545b1fe8322954f6e3, type: 3}
+  missileEffect: {fileID: 4107929442208628708, guid: 425884659ccf677448313509b0d28a6b,
+    type: 3}
   damage: 40
   area: 6
-  speed: 40
+  speed: 15

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     public GameObject blood;
+    public GameObject missileEffect;
     public float damage; //init in GameController
     public float area = 5f;
     private Transform target;
@@ -73,7 +74,8 @@ public class Missile : MonoBehaviour
 
     void HitTarget()
     {
-        
+        GameObject effect = (GameObject)Instantiate(missileEffect, transform.position, transform.rotation);
+        Destroy(effect, 2f);
         Explode();
         Destroy(gameObject);
     }

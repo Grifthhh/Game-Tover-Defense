@@ -105,5 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  bulletCrash: {fileID: 6398248195140206686, guid: f7be7e0e0ed1c874f90883130dfc166f,
+    type: 3}
   blood: {fileID: 5670942803679397820, guid: 54f18c3e346949545b1fe8322954f6e3, type: 3}
-  speed: 40
+  speed: 20

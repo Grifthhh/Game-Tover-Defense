@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float damage; //init in GameController
     private Transform target;
     private EnemyHealth health;
-
+    public GameObject bulletCrash;
     public GameObject blood;
     public float speed = 40f;
 
@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         Vector3 direction = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if (direction.magnitude <= (distanceThisFrame + 2f))
+        if (direction.magnitude <= (distanceThisFrame + 1f))
         {
             HitTarget();
             GameObject prt = Instantiate(blood, target.transform.position, target.transform.rotation);
@@ -52,6 +52,8 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
+        GameObject efekt = (GameObject)Instantiate(bulletCrash, transform.position, transform.rotation);
+        Destroy(efekt, 2f);
         Destroy(gameObject);
     }
 }
