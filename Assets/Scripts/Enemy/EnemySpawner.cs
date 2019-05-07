@@ -12,10 +12,12 @@ public class EnemySpawner : MonoBehaviour
     public float waveTime = 10f;
 
     private int pos;
-    private int count;
+    [HideInInspector]
+    public int count;
     private int spawnCount;
     private float timer;
-    private float waveTimer;
+    [HideInInspector]
+    public float waveTimer;
     private int childCount;
     private List<Vector3> spawnPos = new List<Vector3>();
 
@@ -39,6 +41,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if (count == 50)
+        {
+            GameController.isGameOver = true;
+        }
+
         timer += Time.deltaTime;
         waveTimer += Time.deltaTime;
 
@@ -52,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         
         if (timer > spawnTime && spawnCount != 0)
         {
-            if (spawnCount == 3)
+            if (spawnCount % 3 == 0)
             {
                 SpawnDev(pos);
             }
