@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemy;
-    public float spawnRate = .1f;
+    public GameObject goblin;
+    public GameObject dev;
+
+    public float spawnTime = .1f;
     public float waveTime = 10f;
 
+    private int pos;
     private int count;
+    private int spawnCount;
     private float timer;
     private float waveTimer;
     private int childCount;
@@ -28,6 +32,9 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         count = 0;
+        spawnCount = 0;
+        timer = 0;
+        waveTimer = 0;
     }
 
     private void Update()
@@ -35,22 +42,46 @@ public class EnemySpawner : MonoBehaviour
         timer += Time.deltaTime;
         waveTimer += Time.deltaTime;
 
-        if (timer > waveTimer)
+        if (waveTimer > waveTime)
         {
             count++;
+            spawnCount = count;
+            pos = Pos();
+            waveTimer = 0;
         }
         
-        if (timer > spawnRate)
+        if (timer > spawnTime && spawnCount != 0)
         {
-            Spawn();
+            if (spawnCount == 3)
+            {
+                SpawnDev(pos);
+            }
+            else
+            {
+                SpawnGoblin(pos);
+            }
+
+            spawnCount--;
         }
     }
 
-    private void Spawn()
+    private int Pos()
+    {
+        int pos = Random.Range(0, childCount);
+        return pos;
+    }
+
+    private void SpawnGoblin(int random)
     {
         timer = 0;
+        
+        Instantiate(goblin, spawnPos[random], Quaternion.LookRotation(-spawnPos[random]));
+    }
 
-        int random = Random.Range(0, childCount);
-        Instantiate(enemy, spawnPos[random], Quaternion.LookRotation(-spawnPos[random]));
+    private void SpawnDev(int random)
+    {
+        timer = 0;
+        
+        Instantiate(dev, spawnPos[random], Quaternion.LookRotation(-spawnPos[random]));
     }
 }

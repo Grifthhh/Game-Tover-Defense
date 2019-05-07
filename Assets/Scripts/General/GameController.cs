@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     public Button libBtn;
     public Button bulBtn;
     public Button misBtn;
+    public float scienceTimer;
+    public float goldTimer;
 
     public static bool isGameOver;
     public static bool isGamePaused;
@@ -16,8 +18,6 @@ public class GameController : MonoBehaviour
     public static int goldCount;
     public static int permissionGold;
     public static int permissionLibrary;
-    public float scienceTimer;
-    public float goldTimer;
     public static float goldRate;
     public static float scienceRate;
 

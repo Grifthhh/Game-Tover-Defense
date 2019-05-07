@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
             Gold.gold += gold;
+            DeadEnemy.deadEnemy++;
         }
     }
 }

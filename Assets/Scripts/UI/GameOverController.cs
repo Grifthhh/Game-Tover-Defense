@@ -26,7 +26,7 @@ public class GameOverController : MonoBehaviour
             txt.enabled = true;
             btn.enabled = true;
             btn.image.enabled = true;
-            btnTxt.enabled = false;
+            btnTxt.enabled = true;
         }
     }
 

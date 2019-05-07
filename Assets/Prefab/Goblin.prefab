@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2237712891696507447}
   - component: {fileID: 2237712891696507446}
   - component: {fileID: 2237712891696507445}
+  - component: {fileID: 7981701179286922776}
   - component: {fileID: 2237712891696507444}
   - component: {fileID: 2237712891696507451}
   - component: {fileID: 2237712891696507450}
@@ -85,6 +86,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7981701179286922776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237712891696507455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263c60a3f332ebb4fb5bc63a60e703ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!136 &2237712891696507444
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -162,7 +177,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ba9e9931387b4654b99ac9a6fa92d927, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -272,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPrt: {fileID: 8765926157554887428, guid: 94aa689a36196594fb690521451a5df7, type: 3}
   timeBetweenAttacks: 2
-  damage: 5
+  damage: 1
   enemySpawner: {fileID: 0}
 --- !u!114 &3537768324714587921
 MonoBehaviour:

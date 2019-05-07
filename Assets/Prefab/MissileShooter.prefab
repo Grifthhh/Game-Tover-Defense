@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3412752980725851773}
   - component: {fileID: 4200607237800256876}
   - component: {fileID: 2401934196774410804}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bottom
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 2245534022896982388}
   - component: {fileID: 2841569161130765869}
   - component: {fileID: 5680050804883811130}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MissileShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081091656023352859}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4801716956038383279}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 3515661005202381417}
   - component: {fileID: 6791954710957470690}
   - component: {fileID: 7249302378955225202}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 5728300857908013395}
   - component: {fileID: 1421140513345075568}
   - component: {fileID: 5047173125440464404}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Structure
   m_Icon: {fileID: 0}
