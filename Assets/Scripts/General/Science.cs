@@ -9,7 +9,7 @@ public class Science : MonoBehaviour
 
     private void Start()
     {
-        science = 0;
+        science = 100;
     }
 
     private void Update()

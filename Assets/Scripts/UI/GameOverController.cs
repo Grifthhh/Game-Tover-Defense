@@ -10,6 +10,9 @@ public class GameOverController : MonoBehaviour
     public Text txt;
     public Button btn;
     public Text btnTxt;
+    public Text gameOver;
+    public EnemySpawner enemySpawner;
+    public GameController gameController;
 
     private Animator anim;
 
@@ -27,11 +30,17 @@ public class GameOverController : MonoBehaviour
             btn.enabled = true;
             btn.image.enabled = true;
             btnTxt.enabled = true;
+            gameOver.text = "Game Over\nScore: " + enemySpawner.count;
         }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

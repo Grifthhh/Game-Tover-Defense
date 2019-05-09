@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (count == 50)
+        if (count == 30)
         {
             GameController.isGameOver = true;
         }

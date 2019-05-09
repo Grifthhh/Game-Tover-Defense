@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {
         isGamePaused = true;
         Time.timeScale = 0f;

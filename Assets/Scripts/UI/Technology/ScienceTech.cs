@@ -18,7 +18,7 @@ public class ScienceTech : MonoBehaviour
         if (Science.science >= 100)
         {
             Science.science -= 100;
-            GameController.scienceRate = 0.1f;
+            GameController.scienceRate += GameController.scienceRate * 0.1f;
             button1.interactable = false;
         }
     }
@@ -38,7 +38,7 @@ public class ScienceTech : MonoBehaviour
         if (Science.science >= 300 && !button1.interactable)
         {
             Science.science -= 300;
-            GameController.scienceRate = 0.2f;
+            GameController.scienceRate += GameController.scienceRate * 0.2f;
             button3.interactable = false;
         }
     }
@@ -58,7 +58,7 @@ public class ScienceTech : MonoBehaviour
         if (Science.science >= 1000 && !button3.interactable && !button4.interactable)
         {
             Science.science -= 1000;
-            GameController.scienceRate = 0.5f;
+            GameController.scienceRate += GameController.scienceRate * 0.5f;
             button5.interactable = false;
         }
     }

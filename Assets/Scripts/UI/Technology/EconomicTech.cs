@@ -31,7 +31,7 @@ public class EconomicTech : MonoBehaviour
         if (Science.science >= 100 && !button0.interactable)
         {
             Science.science -= 100;
-            GameController.goldRate = 0.1f;
+            GameController.goldRate += GameController.goldRate * 0.1f;
             button1.interactable = false;
         }
     }
@@ -51,7 +51,7 @@ public class EconomicTech : MonoBehaviour
         if (Science.science >= 300 && !button1.interactable)
         {
             Science.science -= 300;
-            GameController.goldRate = 0.2f;
+            GameController.goldRate += GameController.goldRate * 0.2f;
             button3.interactable = false;
         }
     }
@@ -71,7 +71,7 @@ public class EconomicTech : MonoBehaviour
         if (Science.science >= 1000 && !button0.interactable && !button1.interactable && !button2.interactable && !button3.interactable && !button4.interactable)
         {
             Science.science -= 1000;
-            GameController.goldRate = 0.5f;
+            GameController.goldRate += GameController.goldRate * 0.5f;
             button5.interactable = false;
         }
     }
